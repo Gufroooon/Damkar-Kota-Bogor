@@ -58,7 +58,7 @@
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap">
-                            {{ $item->created_at->format('d M Y') }}
+                               {{ $item->tanggal->format('d M Y') }}
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap text-sm">

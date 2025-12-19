@@ -43,6 +43,17 @@
                 </p>
             </div>
 
+            {{-- TANGGAL --}}
+<div class="mb-6">
+    <label class="font-semibold text-gray-700">Tanggal</label>
+    <input type="date"
+           name="tanggal"
+           value="{{ old('tanggal', now()->format('Y-m-d')) }}"
+           class="mt-2 w-full border px-4 py-3 rounded-lg
+                  focus:ring-2 focus:ring-red-400"
+           required>
+</div>
+
             {{-- TOMBOL --}}
             <div class="flex justify-between mt-8">
                 <a href="{{ route('admin.galerivideo.index') }}"

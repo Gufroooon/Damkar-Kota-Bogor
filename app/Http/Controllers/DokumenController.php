@@ -14,13 +14,17 @@ class DokumenController extends Controller
      * =============================== */
 
     // INDEX ADMIN
-    public function index()
-    {
-        $kategori = KategoriDokumen::orderBy('nama_kategori')->get();
-        $dokumen  = Dokumen::with('kategori')->latest()->get();
+   public function index()
+{
+    $kategori = KategoriDokumen::orderBy('nama_kategori')->get();
 
-        return view('admin.dokumen.index', compact('kategori', 'dokumen'));
-    }
+    $dokumen = Dokumen::with('kategori')
+        ->latest()
+        ->paginate(10); // ⬅️ pagination
+
+    return view('admin.dokumen.index', compact('kategori', 'dokumen'));
+}
+
 
     // FORM CREATE
     public function create()
@@ -122,25 +126,33 @@ public function update(Request $request, $id)
      * PUBLIC AREA
      * =============================== */
 
-    // INDEX PUBLIC
-    // INDEX PUBLIC
 public function publicIndex(Request $request)
 {
-    $search = $request->query('search');
+    $search   = $request->query('search');
+    $kategori = $request->query('kategori');
 
     $dokumen = Dokumen::with('kategori')
-        ->when($search, function ($query, $search) {
+        ->when($search, function ($query) use ($search) {
             $query->where('nama_dokumen', 'like', "%{$search}%")
-                  ->orWhere('keterangan', 'like', "%{$search}%")
-                  ->orWhereHas('kategori', function ($q) use ($search) {
-                      $q->where('nama_kategori', 'like', "%{$search}%");
-                  });
+                  ->orWhere('keterangan', 'like', "%{$search}%");
+        })
+        ->when($kategori, function ($query) use ($kategori) {
+            $query->where('kategori_id', $kategori);
         })
         ->latest()
         ->paginate(10)
-        ->withQueryString(); // biar search gak ilang pas pindah page
+        ->withQueryString();
 
-    return view('dokumen', compact('dokumen', 'search'));
+    // buat dropdown filter
+    $kategoriList = KategoriDokumen::orderBy('nama_kategori')->get();
+
+    return view('dokumen', compact(
+        'dokumen',
+        'search',
+        'kategori',
+        'kategoriList'
+    ));
 }
+
 
 }

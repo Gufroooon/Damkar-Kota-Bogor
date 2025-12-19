@@ -41,6 +41,7 @@
         height: 100%;
         border-radius: 0.75rem;
     }
+
 </style>
 
 <!-- HEADER -->
@@ -64,50 +65,72 @@
 <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        @if($videos->count() > 0)
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-            @forelse ($videos as $video)
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift">
+                @foreach ($videos as $video)
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift">
 
-                    <!-- VIDEO -->
-                    <div class="p-3">
-                        <div class="video-wrapper bg-black rounded-xl overflow-hidden">
-                            <iframe
-                               src="{{ $video->url_video }}"
-
-                                frameborder="0" 
-                                allowfullscreen
-                                loading="lazy">
-                            </iframe>
+                        <!-- VIDEO -->
+                        <div class="p-3">
+                            <div class="video-wrapper bg-black rounded-xl overflow-hidden">
+                                <iframe
+                                   src="{{ $video->url_video }}"
+                                    frameborder="0" 
+                                    allowfullscreen
+                                    loading="lazy">
+                                </iframe>
+                            </div>
                         </div>
+
+                        <!-- CONTENT -->
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold text-lg mb-2 break-words leading-snug">
+                                {{ $video->judul }}
+                            </h3>
+                            <p class="text-sm text-gray-500">
+                                 {{ $video->tanggal->format('d M Y') }}
+                            </p>
+                        </div>
+
                     </div>
+                @endforeach
 
-                    <!-- CONTENT -->
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-lg mb-2 break-words leading-snug">
-                            {{ $video->judul }}
-                        </h3>
-                        <p class="text-sm text-gray-500">
-                            {{ $video->created_at->translatedFormat('d F Y') }}
-                        </p>
-                    </div>
+            </div>
 
+            <!-- PAGINATION -->
+            <div class="mt-16 flex justify-center">
+                {{ $videos->links('pagination::tailwind') }}
+            </div>
+        @else
+            <!-- EMPTY STATE -->
+            <div class="flex flex-col items-center justify-center py-20">
+                <div class=" mb-8">
+                    <svg class="w-32 h-32 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                              d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
                 </div>
-            @empty
-                <div class="col-span-full text-center py-16 text-gray-500">
-                    Belum ada video yang ditampilkan.
+                
+                <h3 class="text-2xl font-bold text-gray-700 mb-3">
+                    Galeri Video Masih Kosong
+                </h3>
+                
+                <p class="text-gray-500 text-center max-w-md mb-6">
+                    Belum ada dokumentasi video yang tersedia saat ini. Silakan cek kembali nanti untuk melihat video terbaru kegiatan kami.
+                </p>
+
+                <div class="flex items-center gap-2 text-sm text-gray-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Video dokumentasi akan segera ditambahkan</span>
                 </div>
-            @endforelse
-
-        </div>
-
-        <!-- PAGINATION -->
-        <div class="mt-16 flex justify-center">
-            {{ $videos->links('pagination::tailwind') }}
-        </div>
+            </div>
+        @endif
 
     </div>
 </section>
-
 
 @endsection

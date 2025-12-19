@@ -12,6 +12,11 @@ class Galeri extends Model
     protected $fillable = [
         'judul',
         'gambar',
+        'tanggal',
+    ];
+
+    protected $casts = [
+        'tanggal' => 'date',
     ];
 
    public function images()

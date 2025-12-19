@@ -12,7 +12,7 @@ class GaleriVideoController extends Controller
      ======================= */
     public function publicIndex()
     {
-        $videos = Galerivideo::latest()->paginate(8);
+         $videos = Galerivideo::orderBy('tanggal', 'desc')->paginate(8);
         return view('galeri.galerivideo', compact('videos'));
     }
 
@@ -23,7 +23,7 @@ class GaleriVideoController extends Controller
     // INDEX
     public function index()
     {
-        $videos = Galerivideo::latest()->get();
+         $videos = Galerivideo::orderBy('tanggal', 'desc')->get();
         return view('admin.galerivideo.index', compact('videos'));
     }
 
@@ -37,13 +37,16 @@ class GaleriVideoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'judul' => 'required|string|max:255',
-            'url_video' => 'required|url',
-        ]);
+    'judul' => 'required|string|max:255',
+    'url_video' => 'required|url',
+    'tanggal' => 'required|date',
+]);
+
 
        Galerivideo::create([
     'judul' => $request->judul,
     'url_video' => $this->convertToEmbed($request->url_video),
+    'tanggal' => $request->tanggal,
 ]);
 
 
@@ -63,15 +66,18 @@ class GaleriVideoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'judul' => 'required|string|max:255',
-            'url_video' => 'required|url',
-        ]);
+    'judul' => 'required|string|max:255',
+    'url_video' => 'required|url',
+    'tanggal' => 'required|date',
+]);
+
 
         $video = Galerivideo::findOrFail($id);
 
         $video->update([
     'judul' => $request->judul,
     'url_video' => $this->convertToEmbed($request->url_video),
+        'tanggal' => $request->tanggal,
 ]);
 
 

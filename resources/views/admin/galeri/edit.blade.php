@@ -53,6 +53,20 @@
             @endif
         </div>
 
+                {{-- TANGGAL --}}
+<div class="mb-6">
+    <label class="block font-semibold mb-2">
+        Tanggal
+    </label>
+
+    <input type="date"
+           name="tanggal"
+           value="{{ old('tanggal', $galeri->tanggal->format('Y-m-d')) }}"
+           required
+           class="w-full px-4 py-3 border rounded-lg
+                  focus:ring-2 focus:ring-red-400">
+</div>
+
         <!-- TOMBOL -->
         <div class="flex justify-end space-x-3">
             <a href="{{ route('admin.galeri.index') }}"

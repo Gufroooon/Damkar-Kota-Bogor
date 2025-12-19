@@ -34,6 +34,8 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    
 </style>
 
 <!-- HEADER -->
@@ -57,65 +59,93 @@
 <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            @foreach ($galeri as $index => $item)
-                @php
-                    $images = $item->images;
-                    $total = $images->count();
-                @endphp
+        @if($galeri->count() > 0)
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                @foreach ($galeri as $index => $item)
+                    @php
+                        $images = $item->images;
+                        $total = $images->count();
+                    @endphp
 
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift">
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift">
 
-                    <!-- SLIDER -->
-                    <div class="relative bg-black h-56 overflow-hidden"
-                         id="slider-{{ $index }}">
+                        <!-- SLIDER -->
+                        <div class="relative bg-black h-56 overflow-hidden flex items-center justify-center"
+                             id="slider-{{ $index }}">
 
-                        @foreach ($images as $i => $img)
-                            <img src="{{ asset($img->file_path) }}"
-                                 class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500
-                                        {{ $i === 0 ? 'opacity-100' : 'opacity-0' }}"
-                                 data-slide="{{ $i }}">
-                        @endforeach
+                            @foreach ($images as $i => $img)
+                                <img src="{{ asset($img->file_path) }}"
+                                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500
+                                            {{ $i === 0 ? 'opacity-100' : 'opacity-0' }}"
+                                     data-slide="{{ $i }}">
+                            @endforeach
 
-                        <!-- PREV -->
-                        <button onclick="prev({{ $index }})"
-                                class="absolute left-2 top-1/2 -translate-y-1/2
-                                       bg-black/50 hover:bg-black/70 text-white px-2 py-1 rounded-full text-sm">
-                            ❮
-                        </button>
+                            <!-- PREV -->
+                            <button onclick="prev({{ $index }})"
+                                    class="absolute left-2 top-1/2 -translate-y-1/2
+                                           bg-black/50 hover:bg-black/70 text-white px-2 py-1 rounded-full text-sm">
+                                ❮
+                            </button>
 
-                        <!-- NEXT -->
-                        <button onclick="next({{ $index }})"
-                                class="absolute right-2 top-1/2 -translate-y-1/2
-                                       bg-black/50 hover:bg-black/70 text-white px-2 py-1 rounded-full text-sm">
-                            ❯
-                        </button>
+                            <!-- NEXT -->
+                            <button onclick="next({{ $index }})"
+                                    class="absolute right-2 top-1/2 -translate-y-1/2
+                                           bg-black/50 hover:bg-black/70 text-white px-2 py-1 rounded-full text-sm">
+                                ❯
+                            </button>
 
-                        <!-- INDICATOR -->
-                        <div class="absolute bottom-2 left-1/2 -translate-x-1/2
-                                    bg-black/60 text-white px-3 py-0.5 rounded-full text-xs">
-                            <span id="current-{{ $index }}">1</span> / {{ $total }}
+                            <!-- INDICATOR -->
+                            <div class="absolute bottom-2 left-1/2 -translate-x-1/2
+                                        bg-black/60 text-white px-3 py-0.5 rounded-full text-xs">
+                                <span id="current-{{ $index }}">1</span> / {{ $total }}
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- CONTENT -->
-                    <div class="p-4 text-center">
-                        <h3 class="font-bold text-lg mb-2 text-center break-words leading-snug">
-                            {{ $item->judul }}
-                        </h3>
-                        <p class="text-sm text-gray-500">
-                            {{ $item->created_at->translatedFormat('d F Y') }}
-                        </p>
-                    </div>
+                        <!-- CONTENT -->
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold text-lg mb-2 text-center break-words leading-snug">
+                                {{ $item->judul }}
+                            </h3>
+                            <p class="text-sm text-gray-500">
+                                {{ $item->tanggal->format('d M Y') }}
+                            </p>
+                        </div>
 
+                    </div>
+                @endforeach
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="mt-16 flex justify-center">
+                {{ $galeri->links('pagination::tailwind') }}
+            </div>
+        @else
+            <!-- EMPTY STATE -->
+            <div class="flex flex-col items-center justify-center py-20">
+                <div class=" mb-8">
+                    <svg class="w-32 h-32 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
                 </div>
-            @endforeach
-        </div>
+                
+                <h3 class="text-2xl font-bold text-gray-700 mb-3">
+                    Galeri Masih Kosong
+                </h3>
+                
+                <p class="text-gray-500 text-center max-w-md mb-6">
+                    Belum ada dokumentasi kegiatan yang tersedia saat ini. Silakan cek kembali nanti untuk melihat galeri foto terbaru.
+                </p>
 
-        <!-- PAGINATION -->
-        <div class="mt-16 flex justify-center">
-            {{ $galeri->links('pagination::tailwind') }}
-        </div>
+                <div class="flex items-center gap-2 text-sm text-gray-400">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Dokumentasi akan segera ditambahkan</span>
+                </div>
+            </div>
+        @endif
 
     </div>
 </section>

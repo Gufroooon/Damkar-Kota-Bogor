@@ -39,12 +39,14 @@ class GaleriController extends Controller
     {
         $request->validate([
             'judul' => 'required|string|max:255',
-            'gambar.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'gambar.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+             'tanggal' => 'required|date',
         ]);
 
         // Simpan galeri
         $galeri = Galeri::create([
             'judul' => $request->judul,
+            'tanggal' => $request->tanggal,
         ]);
 
         // Simpan gambar
@@ -77,12 +79,13 @@ class GaleriController extends Controller
     $request->validate([
         'judul' => 'required|string|max:255',
         'gambar.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+         'tanggal' => 'required|date',
     ]);
 
     $galeri = Galeri::with('images')->findOrFail($id);
 
     // update judul
-    $galeri->update(['judul' => $request->judul]);
+    $galeri->update(['judul' => $request->judul, 'tanggal' => $request->tanggal]);
 
     // JIKA ADA GAMBAR BARU -> HAPUS GAMBAR LAMA DULU
     if ($request->hasFile('gambar')) {

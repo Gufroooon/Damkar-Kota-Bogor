@@ -198,8 +198,8 @@
     </div>
 </section>
 
-<!-- Contact Form Section -->
-<section class="py-20 bg-white">
+
+{{-- <section class="py-20 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold mb-4">Kirim Pesan</h2>
@@ -243,6 +243,6 @@
             </form>
         </div>
     </div>
-</section>
+</section> --}}
 
 @endsection

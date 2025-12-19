@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Damkar Kota Bogor')</title>
     <link rel="icon" type="image/png" href="{{ asset('assets/images/logo.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -571,7 +573,7 @@
                                 </svg>
                                 Dokumen
                             </a></li>
-                        <li><a href="/Kontak"
+                        <li><a href="/kontak"
                                 class="text-gray-300 hover:text-yellow-400 transition flex items-center justify-center sm:justify-start text-xs sm:text-sm">
                                 <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"

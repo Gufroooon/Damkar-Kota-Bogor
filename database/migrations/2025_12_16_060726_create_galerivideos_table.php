@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('galeri_videos', function (Blueprint $table) {
     $table->id();
     $table->string('judul');
-    $table->string('url_video'); // youtube / platform lain
+    $table->string('url_video');
+    $table->date('tanggal'); 
     $table->timestamps();
 });
 

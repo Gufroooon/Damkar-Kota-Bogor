@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('galeris', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');          // judul berita   
+            $table->string('judul');          // judul berita
+            $table->date('tanggal');    
             $table->timestamps();
         });
     }

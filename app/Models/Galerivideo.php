@@ -11,5 +11,11 @@ class Galerivideo extends Model
     protected $fillable = [
         'judul',
         'url_video',
+        'tanggal', 
+    ];
+
+    protected $casts = [
+        'tanggal' => 'date',
     ];
 }
+

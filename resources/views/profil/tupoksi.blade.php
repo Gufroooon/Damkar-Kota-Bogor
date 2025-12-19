@@ -98,15 +98,16 @@
             <!-- PDF Viewer -->
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-6">
                 <iframe 
-                    src="https://adm-damkar.kotabogor.go.id/storage/dokumen/uvKxPgLrcNbi10oJmxDfrwT8RNf9wFAgmLLyoqVH.pdf" 
-                    class="w-full h-[600px] border-0"
-                    title="Dokumen Tupoksi DPKP Kota Bogor">
-                </iframe>
+    src="{{ asset('assets/tupoksi.pdf') }}"
+    class="w-full h-[600px] border-0"
+    title="Dokumen Tupoksi DPKP Kota Bogor">
+</iframe>
+
             </div>
 
             <!-- Download Button -->
             <div class="text-center">
-                <a href="https://adm-damkar.kotabogor.go.id/storage/dokumen/uvKxPgLrcNbi10oJmxDfrwT8RNf9wFAgmLLyoqVH.pdf" 
+                <a href="{{ asset('assets/tupoksi.pdf') }}" 
                    download 
                    target="_blank"
                    class="inline-flex items-center gap-3 bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-xl font-bold hover:from-red-700 hover:to-red-800 transition-all transform hover:scale-105 shadow-lg">
