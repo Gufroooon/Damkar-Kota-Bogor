@@ -187,33 +187,77 @@
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-yellow-400 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-red-500 rounded-full blur-3xl"></div>
     </div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-4">Capaian & Dedikasi Kami</h2>
-            <p class="text-gray-300 text-lg">Data kinerja tim Pemadam Kebakaran Kota Bogor</p>
+            <h2 class="text-4xl font-bold mb-4">Komitmen Pelayanan Kami</h2>
+            <p class="text-gray-300 text-lg">
+                Prinsip utama dalam melayani masyarakat Kota Bogor
+            </p>
         </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="text-center glass-effect rounded-2xl p-8 hover-lift">
-                <div class="text-6xl font-bold mb-3 gradient-text">1,250</div>
-                <p class="text-gray-300 text-lg">Kebakaran Dipadamkan</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- RESPONS CEPAT -->
+            <div class="glass-effect rounded-2xl p-8 text-center hover-lift">
+                <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center
+                            bg-gradient-to-br from-yellow-400 to-red-500 rounded-xl shadow-lg">
+                    <svg class="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M11.3 1.046a1 1 0 00-1.6.8v6.154L5.21 7.19a1 1 0 00-.97 1.757l6.99 3.877a1 1 0 001.47-.878V5.846l4.49.81a1 1 0 00.47-1.944l-6.36-1.666z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Respons Cepat</h3>
+                <p class="text-gray-300 text-sm">
+                    Penanganan laporan darurat secara cepat dan tepat.
+                </p>
             </div>
-            <div class="text-center glass-effect rounded-2xl p-8 hover-lift">
-                <div class="text-6xl font-bold mb-3 gradient-text">850</div>
-                <p class="text-gray-300 text-lg">Penyelamatan Berhasil</p>
+
+            <!-- PROFESIONAL -->
+            <div class="glass-effect rounded-2xl p-8 text-center hover-lift">
+                <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center
+                            bg-gradient-to-br from-yellow-400 to-red-500 rounded-xl shadow-lg">
+                    <svg class="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v2h16V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm12 8H2v4a2 2 0 002 2h12a2 2 0 002-2v-4z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Profesional</h3>
+                <p class="text-gray-300 text-sm">
+                    Personel terlatih sesuai standar operasional.
+                </p>
             </div>
-            <div class="text-center glass-effect rounded-2xl p-8 hover-lift">
-                <div class="text-6xl font-bold mb-3 gradient-text">95%</div>
-                <p class="text-gray-300 text-lg">Tingkat Keberhasilan</p>
+
+            <!-- HUMANIS -->
+            <div class="glass-effect rounded-2xl p-8 text-center hover-lift">
+                <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center
+                            bg-gradient-to-br from-yellow-400 to-red-500 rounded-xl shadow-lg">
+                    <svg class="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Humanis</h3>
+                <p class="text-gray-300 text-sm">
+                    Mengedepankan empati dan keselamatan masyarakat.
+                </p>
             </div>
-            <div class="text-center glass-effect rounded-2xl p-8 hover-lift">
-                <div class="text-6xl font-bold mb-3 gradient-text">24/7</div>
-                <p class="text-gray-300 text-lg">Layanan Siaga</p>
+
+            <!-- SIAGA 24 JAM -->
+            <div class="glass-effect rounded-2xl p-8 text-center hover-lift">
+                <div class="w-16 h-16 mx-auto mb-5 flex items-center justify-center
+                            bg-gradient-to-br from-yellow-400 to-red-500 rounded-xl shadow-lg">
+                    <svg class="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-8V5a1 1 0 10-2 0v6a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 10z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Siaga 24 Jam</h3>
+                <p class="text-gray-300 text-sm">
+                    Layanan darurat aktif selama 24 jam penuh.
+                </p>
             </div>
+
         </div>
     </div>
 </section>
+
 
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -222,12 +266,18 @@
                 <h2 class="text-4xl font-bold mb-2">Berita & Kegiatan Terbaru</h2>
                 <p class="text-gray-600">Update informasi dari Damkar Kota Bogor</p>
             </div>
-            <a href="/berita" class="hidden md:inline-flex items-center text-red-600 font-semibold hover:text-red-700 group">
-                Lihat Semua 
-                <svg class="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="..." />
-                </svg>
-            </a>
+            <a href="/berita"
+       class="hidden sm:inline-flex items-center text-red-600 font-semibold
+              hover:text-red-700 transition group">
+
+        Lihat Semua
+        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+             fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"/>
+        </svg>
+    </a>
         </div>
 
         <!-- GRID FIX -->
@@ -256,9 +306,13 @@
               {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}
             </div>
 
-            <h3 class="text-xl font-bold mb-3 hover:text-red-600 transition-colors break-words leading-relaxed">
-                {{ $item->judul }}
-            </h3>
+            <h3 class="text-xl font-bold mb-3 break-words leading-relaxed">
+    <a href="{{ route('public.berita.show', $item->id) }}"
+       class="hover:text-red-600 transition-colors">
+        {{ $item->judul }}
+    </a>
+</h3>
+
 
          <p class="text-gray-600 mb-4 leading-relaxed break-words">
     {{ Str::limit(
@@ -306,10 +360,30 @@
 <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
 
-        <div class="text-center mb-14">
-            <h2 class="text-4xl font-bold mb-2">Galeri Dokumentasi</h2>
-            <p class="text-gray-600">Foto & Video Terbaru</p>
-        </div>
+        <div class="flex items-center justify-between mb-14">
+
+    <!-- JUDUL -->
+    <div>
+        <h2 class="text-4xl font-bold mb-1">Galeri Dokumentasi</h2>
+        <p class="text-gray-600">Foto & Video Terbaru</p>
+    </div>
+
+    <!-- LIHAT SEMUA -->
+    <a href="{{ url('/galeri/foto') }}"
+       class="hidden sm:inline-flex items-center text-red-600 font-semibold
+              hover:text-red-700 transition group">
+
+        Lihat Semua
+        <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+             fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+                  d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"/>
+        </svg>
+    </a>
+
+</div>
+
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 

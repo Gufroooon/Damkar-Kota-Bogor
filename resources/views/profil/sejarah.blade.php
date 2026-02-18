@@ -46,7 +46,7 @@
         </div>
 
         <h1 class="text-5xl lg:text-7xl font-bold mb-6">
-            Sejarah <span class="gradient-text">Damkar Kota Bogor</span>
+            Sejarah Pemadam<br> <span class="gradient-text">Kebakaran Kota Bogor</span>
         </h1>
 
         <p class="text-xl text-gray-200 max-w-3xl mx-auto">

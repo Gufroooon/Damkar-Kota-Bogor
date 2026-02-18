@@ -108,7 +108,7 @@
                     <a href="/"><img src="{{ asset('assets/images/logo.png') }}" alt="Logo Damkar"
                         class="h-10 w-10 sm:h-14 sm:w-14 mr-2 sm:mr-4"></a>
                     <div class="hidden sm:block">
-                        <span class="text-base sm:text-xl font-bold text-red-600 block leading-tight">Pemadam Kebakaran
+                        <span class="text-base sm:text-xl font-bold  block leading-tight">Pemadam Kebakaran
                             Kota Bogor</span>
                         <span class="text-xs text-gray-600">Siap Melindungi, Siap Melayani</span>
                     </div>
